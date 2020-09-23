@@ -82,10 +82,10 @@ analytics:
 author:
   name             : "Matheus Souza"
   avatar           : "profile.png"
-  bio              : "I'm M.S./Ph.D. candidate in the KAUST Computational Imaging Group under the supervision of Professor Wolfgang Heidrich. I graduated (with honors) in Electrical Engineering at the Federal University of Rio Grande do Norte (2019). My research interests relies on Computer Vision, Deep Learning and Embedded Systems."
-  location         : "Thuwal, 23955-6900, Saudi Arabia."
+  bio              : "M.S./Ph.D. candidate in the KAUST Computational Imaging Group. My research interests relies on Computer Vision, Deep Learning and Embedded Systems."
+  location         : "Thuwal, Saudi Arabia."
   employer         :
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
+  pubmed           : 
   googlescholar    : "http://yourfullgooglescholarurl.com"
   email            : "matheus.medeirosdesouza@kaust.edu.sa"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
@@ -96,7 +96,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "matheusvms"
+  github           : "https://github.com/matheusvms"
   google_plus      :
   keybase          :
   instagram        :
@@ -109,7 +109,7 @@ author:
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          : "replacethistwitterhandle"
+  twitter          : 
   vine             :
   weibo            :
   xing             :
