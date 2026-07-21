@@ -150,6 +150,40 @@
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
         <!-- ============================================================================== -->
+          <tr onmouseout="gaze_stop()" onmouseover="gaze_start()">
+            <td style="padding:20px;width:25%;vertical-align:middle">
+              <div class="one">
+                <div class="two" id='gaze'><img src='images/gaze.jpg'></div>
+                <img src='images/gaze.jpg'>
+              </div>
+              <script type="text/javascript">
+                function gaze_start() {
+                  document.getElementById('gaze').style.opacity = "1";
+                }
+
+                function gaze_stop() {
+                  document.getElementById('gaze').style.opacity = "0";
+                }
+              </script>
+            </td>
+            <td style="padding:20px;width:75%;vertical-align:middle">
+                <a href="https://arxiv.org/abs/2605.17990">
+                  <papertitle>Low Latency Gaze Tracking via Latent Optical Sensing</papertitle>
+                </a>
+              <br>
+              Yidan Zheng*, <b>Matheus Souza*</b>, Kaizhang Kang, <a href="https://vccimaging.org/People/fuq/">Qiang Fu</a>, Hadi Amata, <a href="https://vccimaging.org/People/heidriw/">Wolfgang Heidrich</a> <br> <em>*equal contribution</em>
+              <br>
+              <em> <a href="https://arxiv.org/abs/2605.17990"> Under Review </a> </em>
+              <br>
+              <p></p>
+              <p>
+                <li>Real-time gaze tracking with passive optical encoding via a microlens array and co-designed binary mask.</li>
+                <li>A 4&times;4 phototransistor array with a lightweight network achieves 3.4 ms end-to-end sensing-to-inference latency.</li>
+              </p>
+            </td>
+          </tr>
+
+        <!-- ============================================================================== -->
           <tr onmouseout="hybridlens_stop()" onmouseover="hybridlens_start()">
             <td style="padding:20px;width:25%;vertical-align:middle">
               <div class="one">
@@ -188,7 +222,7 @@
                   <papertitle>Limitations of Data-Driven Spectral Reconstruction - An Optics-Aware Analysis</papertitle>
                 </a>
               <br>
-              <a href="https://vccimaging.org/People/fuq/">Qiang Fu*</a>, <b>Matheus Souza*</b>, Suhyun Shin, Eunsue Choi, Seung-Hwan Baek, <a href="https://vccimaging.org/People/heidriw/">Wolfgang Heidrich</a>
+              <a href="https://vccimaging.org/People/fuq/">Qiang Fu*</a>, <b>Matheus Souza*</b>, Suhyun Shin, Eunsue Choi, Seung-Hwan Baek, <a href="https://vccimaging.org/People/heidriw/">Wolfgang Heidrich</a> <br> <em>*equal contribution</em>
               <br>
               <em>Computational Optical Sensing and Imaging, 2024.</b> <a href="https://opg.optica.org/abstract.cfm?uri=COSI-2024-CTh4B.3"> Oral Presentation</a> </em> <br>
               <em> <a href="https://arxiv.org/abs/2401.03835"> IEEE TCI </a> </em>
