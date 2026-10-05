@@ -1,339 +1,301 @@
-<!DOCTYPE HTML>
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-  <title>Matheus Souza</title>
-  
-  <meta name="author" content="Matheus Souza">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ===================================================================
+       Matheus Souza · personal academic website
+       Plain HTML + style.css + script.js (no build step).
+       Nothing needs regular updating except adding new papers.
+       =================================================================== -->
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
-	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
+  <title>Matheus Souza — Computational Imaging</title>
+  <meta name="description" content="Matheus Souza is a final-year Ph.D. candidate at KAUST co-designing optics and neural networks for computational cameras. Previously at Meta Reality Labs. On the job market.">
+  <meta name="author" content="Matheus Medeiros de Souza">
+  <link rel="canonical" href="https://matheusvms.github.io/">
+
+  <!-- Link previews (LinkedIn, Slack, X, ...) -->
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Matheus Souza — Computational Imaging">
+  <meta property="og:description" content="Ph.D. candidate at KAUST co-designing optics and neural networks. Previously Meta Reality Labs.">
+  <meta property="og:url" content="https://matheusvms.github.io/">
+  <meta property="og:image" content="https://matheusvms.github.io/images/og-card.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <!-- Structured data: helps search engines show the right name, photo and profiles -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"Matheus Medeiros de Souza","alternateName":"Matheus Souza",
+   "jobTitle":"Ph.D. Candidate in Computational Imaging","url":"https://matheusvms.github.io/",
+   "image":"https://matheusvms.github.io/images/profile.jpg","email":"mailto:matheus.medeirosdesouza@kaust.edu.sa",
+   "affiliation":{"@type":"CollegeOrUniversity","name":"King Abdullah University of Science and Technology (KAUST)"},
+   "alumniOf":[{"@type":"CollegeOrUniversity","name":"Universidade Federal do Rio Grande do Norte (UFRN)"}],
+   "knowsAbout":["Computational imaging","Computational photography","Optical design","Deep learning"],
+   "sameAs":["https://scholar.google.com/citations?user=LkPjxMIAAAAJ&hl=en","https://github.com/matheusvms","https://www.linkedin.com/in/matheus-souza-4328a3213"]}
+  </script>
+
+  <!-- Light + dark themes: follows the OS setting; the button in the corner overrides it. -->
+  <meta name="color-scheme" content="light dark">
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js');
+      try {
+        var saved = localStorage.getItem('theme');
+        if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+      } catch (e) { /* storage blocked: just follow the OS setting */ }
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Source+Serif+4:opsz,wght@8..60,600&amp;display=swap">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 
 <body>
-  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-    <tr style="padding:0px">
-      <td style="padding:0px">
+  <!-- Icon sprite: reuse with <svg class="icon" aria-hidden="true"><use href="#i-NAME"/></svg> -->
+  <svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3.5 7.5 7.4 5.2a1.9 1.9 0 0 0 2.2 0l7.4-5.2"/></symbol>
+    <symbol id="i-paper" viewBox="0 0 24 24"><path d="M12 7v13.5"/><path d="M3 17.5V4.5a1 1 0 0 1 1-1h4.5a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1 3.5-3.5H20a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-5.5a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0-2.5-2.5H4a1 1 0 0 1-1-1z"/></symbol>
+    <symbol id="i-archive" viewBox="0 0 24 24"><rect x="2.5" y="3.5" width="19" height="5" rx="1"/><path d="M4.5 8.5v10a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-10"/><path d="M10 12.5h4"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></symbol>
+    <symbol id="i-slides" viewBox="0 0 24 24"><path d="M2 3.5h20"/><path d="M20.5 3.5v10a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2v-10"/><path d="m7.5 20.5 4.5-5 4.5 5"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></symbol>
+    <symbol id="i-scholar" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+  </svg>
+
+  <main class="page">
+
+    <!-- Theme toggle (needs JS; hidden without it) -->
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark theme">
+      <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+      <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+    </button>
 
 
-        <!-- Introduction -->
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr style="padding:0px">
-            <td style="padding:2.5%;width:63%;vertical-align:middle">
-              <p style="text-align:center; font-size:10px;">
-                <name><b>Matheus Medeiros de Souza</b></name>
-              </p>
-              
-              <p>
-                I am a final-year Ph.D. student at KAUST Computational Imaging Group, working with Prof. <a href="https://vccimaging.org/People/heidriw/">Wolfgang Heidrich</a>.</b>
-              </p>
+    <!-- ================================ INTRO ================================ -->
+    <header class="intro">
+      <div class="intro-text">
+        <h1>Matheus Souza</h1>
+        <p class="role"><span>Ph.D. candidate</span> <span>Computational Imaging</span> <span>KAUST</span></p>
 
-              <p>
-                My research is centered on the innovative fusion of deep reconstruction algorithms and end-to-end optics design. This involves developing deep learning models and formulating optimization strategies that incorporate optical elements into the computational loop. 
-                Focusing on the following topics:
-                <li>Minimalistic camera design.</li>
-                <li>Deep learning for optical design.</li>
-                <li>Computational cameras.</li>
-                <li>Optics-aware computational photography.</li>
-              </p>
-              
-              <p style="text-align:center">
-                <a href="mailto:matheus.medeirosdesouza@kaust.edu.sa">Email</a> &nbsp/&nbsp
-                <a href="https://scholar.google.com/citations?user=LkPjxMIAAAAJ&hl=en">Google Scholar</a> &nbsp/&nbsp
-                <a href="https://www.linkedin.com/in/matheus-souza-4328a3213">LinkedIn</a>
-              </p>
+        <p class="bio">
+          I’m a final-year Ph.D. candidate at KAUST, advised by
+          <a href="https://vccimaging.org/People/heidriw/">Wolfgang Heidrich</a> in the Computational Imaging Group.
+          I co-design optics and neural networks: end-to-end differentiable imaging systems in which optical
+          elements act as learned encoders, so cameras capture what a task needs rather than just pixels.
+          In 2025, I was a Research Scientist Intern at Meta Reality Labs.
+        </p>
 
-            </td>
-            <td style="padding:2.5%;width:40%;max-width:40%">
-              <a href="images/profile.jpg"><img style="width:100%;max-width:100%" alt="profile photo" src="images/profile.jpg" class="hoverZoomLink"></a>
-            </td>
-          </tr>
-        </tbody>
-        </table>
-        
-        
-        
-        <!-- Education -->
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-        <tbody>
-          <tr>
-          <td style="padding:20px;width:100%;vertical-align:middle">
-            <heading style="font-size: 22px;"><b>Education</b></heading>
-            <p>
-            </p>
-          </td>
-        </tr>
-        </tbody>
-        </table>
+        <!-- JOB MARKET: confirm wording / remove after hiring -->
+        <p class="job">
+          <span class="dot" aria-hidden="true"></span>
+          <span><strong>I’m on the job market</strong> for research scientist roles in computational imaging,
+          camera systems, and optics-aware machine learning.</span>
+        </p>
+        <!-- /JOB MARKET -->
 
-        <!-- Education Items -->
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-        <tbody>
-          <tr>
-            <td style="padding:10px;width:15%;vertical-align:middle">
-              <img src='images/kaust.png' style="width:100%">
-            </td>
-            <td style="padding:10px;width:85%;vertical-align:middle">
-              <p style="margin:0"><b>Ph.D. in Computer Science</b></p>
-              <p style="margin:0">King Abdullah University of Science and Technology (KAUST), Saudi Arabia</p>
-              <p style="margin:0">2022 - Present</p>
-            </td>
-          </tr>
+        <ul class="links" aria-label="Contact and profiles">
+          <li><a class="btn btn-primary" href="mailto:matheus.medeirosdesouza@kaust.edu.sa"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>Email</a></li>
+          <li><a class="btn" href="https://scholar.google.com/citations?user=LkPjxMIAAAAJ&amp;hl=en" aria-label="Google Scholar"><svg class="icon" aria-hidden="true"><use href="#i-scholar"/></svg>Scholar</a></li>
+          <li><a class="btn" href="https://github.com/matheusvms"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>GitHub</a></li>
+          <li><a class="btn" href="https://www.linkedin.com/in/matheus-souza-4328a3213"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a></li>
+        </ul>
+      </div>
 
-          <tr>
-            <td style="padding:10px;width:15%;vertical-align:middle">
-              <img src='images/kaust.png' style="width:100%">
-            </td>
-            <td style="padding:10px;width:85%;vertical-align:middle">
-              <p style="margin:0"><b>M.Sc. in Computer Science</b></p>
-              <p style="margin:0">King Abdullah University of Science and Technology (KAUST), Saudi Arabia</p>
-              <p style="margin:0">2020 - 2022</p>
-            </td>
-          </tr>
-
-          <tr>
-            <td style="padding:10px;width:15%;vertical-align:middle">
-              <img src='images/ufrn.png' style="width:100%">
-            </td>
-            <td style="padding:10px 20px 10px 10px;width:85%;vertical-align:middle">
-              <p style="margin:0"><b>B.Sc. in Electrical Engineering</b></p>
-              <p style="margin:0">Universidade Federal do Rio Grande do Norte (UFRN), Brazil</p>
-              <p style="margin:0">2015 - 2019</p>
-              <p style="margin:0; color:#990000;"><i>Graduated with Highest Honors • Best Student Award, Class of 2019</i></p>
-            </td>
-          </tr>
-        </tbody>
-        </table>
-
-        <!-- Work Experience -->
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-        <tbody>
-          <tr>
-          <td style="padding:20px;width:100%;vertical-align:middle">
-            <heading style="font-size: 22px;"><b>Work Experience</b></heading>
-            <p>
-            </p>
-          </td>
-        </tr>
-        </tbody>
-        </table>
-
-        <!-- Work Items -->
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-        <tbody>
-          <tr>
-            <td style="padding:10px;width:15%;vertical-align:middle">
-              <img src='images/meta.png' style="width:100%">
-            </td>
-            <td style="padding:10px;width:85%;vertical-align:middle">
-              <p style="margin:0"><b>Research Scientist Intern in Computational Imaging</b></p>
-              <p style="margin:0">Meta Reality Labs - Surreal Team</p>
-              <p style="margin:0">Mentored by <a href="https://scholar.google.com/citations?user=56UhAooAAAAJ&hl/">Michael Goesele</a> </p>
-              <p style="margin:0">June 2025 - November 2025</p>
-            </td>
-          </tr>
-        </tbody>
-        </table>
-
-        <!-- Publications -->
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-            <td style="padding:20px;width:100%;vertical-align:middle">
-              <heading style="font-size: 22px;"><b>Publications</b></heading>
-            </td>
-          </tr>
-        </tbody>
-        </table>
+      <div class="intro-photo">
+        <img src="images/profile.jpg" width="600" height="900" alt="Portrait of Matheus Souza">
+      </div>
+    </header>
 
 
-        <!-- Publications Items -->
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-
-        <!-- ============================================================================== -->
-          <tr onmouseout="gaze_stop()" onmouseover="gaze_start()">
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <div class="two" id='gaze'><img src='images/gaze.jpg'></div>
-                <img src='images/gaze.jpg'>
-              </div>
-              <script type="text/javascript">
-                function gaze_start() {
-                  document.getElementById('gaze').style.opacity = "1";
-                }
-
-                function gaze_stop() {
-                  document.getElementById('gaze').style.opacity = "0";
-                }
-              </script>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-                <a href="https://arxiv.org/abs/2605.17990">
-                  <papertitle>Low Latency Gaze Tracking via Latent Optical Sensing</papertitle>
-                </a>
-              <br>
-              Yidan Zheng*, <b>Matheus Souza*</b>, Kaizhang Kang, <a href="https://vccimaging.org/People/fuq/">Qiang Fu</a>, Hadi Amata, <a href="https://vccimaging.org/People/heidriw/">Wolfgang Heidrich</a> <br> <em><b>*equal contribution</b></em>
-              <br><br>
-              <em> <a href="https://arxiv.org/abs/2605.17990"> SIGGRAPH Asia 2026</a> </em>
-              <br>
-              <p></p>
-              <p>
-                <li>Real-time gaze tracking with passive optical encoding via a microlens array and co-designed binary mask.</li>
-                <li>A 4&times;4 phototransistor array with a lightweight network achieves 3.4 ms end-to-end sensing-to-inference latency.</li>
-              </p>
-            </td>
-          </tr>
-
-        <!-- ============================================================================== -->
-          <tr onmouseout="hybridlens_stop()" onmouseover="hybridlens_start()">
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <div class="two" id='hybridlens'><img src='images/latent.png'></div>
-                <img src='images/latent.png'>
-              </div>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-                <a href="https://arxiv.org/abs/2407.07052">
-                  <papertitle>Latent Space Imaging</papertitle>
-                </a>
-              <br>
-              <b>Matheus Souza</b>, Yidan Zheng, Kaizhang Kang, Yogeshwar Nath Mishra, <a href="https://vccimaging.org/People/fuq/">Qiang Fu</a>, <a href="https://vccimaging.org/People/heidriw/">Wolfgang Heidrich</a>
-              <br><br>
-              <em> <a href="https://openaccess.thecvf.com/content/CVPR2025/html/Souza_Latent_Space_Imaging_CVPR_2025_paper.html"> CVPR 2025,  </a> </em>
-              <em><a href="https://github.com/vccimaging/latent-imaging"> Code </a> </em>
-              <br>
-              <p></p>
-              <p>
-                <li>New paradigm for very low bandwidth image capture based on the latent space of generative models.</li>
-                <li>The demonstration of a range of downstream applications on this latent space with real hardware experimentation.</li>
-              </p>
-            </td>
-          </tr>
-
-          <!-- ============================================================================== -->
-          <tr onmouseout="deeplens_optica_stop()" onmouseover="deeplens_optica_start()">
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <div class="two" id='deeplens_optica'><img src='images/metamer.jpg'></div>
-                <img src='images/metamer.jpg'>
-              </div>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-                <a href="https://arxiv.org/abs/2401.03835">
-                  <papertitle>Limitations of Data-Driven Spectral Reconstruction - An Optics-Aware Analysis</papertitle>
-                </a>
-              <br>
-              <a href="https://vccimaging.org/People/fuq/">Qiang Fu*</a>, <b>Matheus Souza*</b>, Suhyun Shin, Eunsue Choi, Seung-Hwan Baek, <a href="https://vccimaging.org/People/heidriw/">Wolfgang Heidrich</a> <br> <em><b>*equal contribution</b></em>
-              <br><br>
-              <em>Computational Optical Sensing and Imaging, 2024.</b> <a href="https://opg.optica.org/abstract.cfm?uri=COSI-2024-CTh4B.3"> Oral Presentation</a> </em> <br>
-              <em> <a href="https://arxiv.org/abs/2401.03835"> IEEE TCI </a> </em>
-              <br>
-
-              <p></p>
-              <p>
-                <li>Comprehensive analysis of atypical overfitting in state-of-the-art data-driven hyperspectral imaging. </li>
-                <li>Optical aberrations can provide encoding power if modeled correctly.</li>
-              </p>
-            </td>
-          </tr>
+    <!-- ================================ EXPERIENCE ================================ -->
+    <section class="section" id="experience" aria-labelledby="exp-title">
+      <div class="section-head">
+        <h2 id="exp-title">Experience</h2>
+      </div>
+      <ul class="rows">
+        <li class="row">
+          <span class="logo"><img src="images/meta.png" width="80" height="75" alt=""></span>
+          <div>
+            <p class="row-head"><span class="row-title">Research Scientist Intern, Computational Imaging</span><span class="date">Jun 2025 – Nov 2025</span></p>
+            <p class="row-sub">Meta Reality Labs (Surreal team) · Redmond, WA</p>
+            <p class="row-detail">Researched next-generation cameras for contextual AI on always-on devices; designed and built a proof-of-concept prototype spanning hardware and algorithms. Mentor: <a href="https://scholar.google.com/citations?user=56UhAooAAAAJ&amp;hl=en">Michael Goesele</a>.</p>
+          </div>
+        </li>
+        <li class="row">
+          <span class="logo"><img src="images/kaust.png" width="75" height="72" alt=""></span>
+          <div>
+            <p class="row-head"><span class="row-title">M.Sc./Ph.D. Researcher, Computational Imaging Group</span><span class="date">2021 – present</span></p>
+            <p class="row-sub">KAUST · Thuwal, Saudi Arabia</p>
+            <p class="row-detail">Advisor: <a href="https://vccimaging.org/People/heidriw/">Wolfgang Heidrich</a>.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
 
 
-          <!-- ============================================================================== -->
-          <tr onmouseout="hybridlens_stop()" onmouseover="hybridlens_start()">
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <div class="two" id='hybridlens'><img src='images/hybridlens1.jpg'></div>
-                <img src='images/hybridlens1.jpg'>
-              </div>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-                <a href="https://arxiv.org/abs/2406.00834">
-                  <papertitle>End-to-End Hybrid Refractive-Diffractive Lens Design with Differentiable Ray-Wave Model</papertitle>
-                </a>
-              <br>
-              Xinge Yang, <b>Matheus Souza</b>, <a href="https://scholar.google.com/citations?user=D4xDAlUAAAAJ&hl=en">Kunyi Wang</a>, <a href="https://www.cs.unc.edu/~cpk/">Praneeth Chakravarthula</a>, <a href="https://vccimaging.org/People/fuq/">Qiang Fu</a>, <a href="https://vccimaging.org/People/heidriw/">Wolfgang Heidrich</a>
-              <br><br>
-              <em>SIGGRAPH Asia 2024.</b> <a href="https://arxiv.org/abs/2406.00834">Paper (Arxiv)</a> / <a href="papers/HybridLens.pdf">Paper (PDF)</a> / <a href="papers/HybridLens_supp.pdf">Supp (PDF)</a></em>
-              <br>
-              <p></p>
-              <p>
-                <li>Differentiable ray-tracing and wave-propagation model.</li>
-                <li>End-to-End hybrid refractive-diffractive lenses design with prototypes.</li>
-              </p>
-            </td>
-          </tr>
+    <!-- ================================ PUBLICATIONS ================================
+         To add a paper: copy one <article class="pub"> … </article> block, paste it
+         at the top of the list (newest first) and edit it. Thumbnails are ~400px-wide
+         JPGs in images/ (update src, width/height and alt). Delete unused link buttons. -->
+    <section class="section" id="publications" aria-labelledby="pubs-title">
+      <div class="section-head">
+        <h2 id="pubs-title">Publications</h2>
+        <a class="section-link" href="https://scholar.google.com/citations?user=LkPjxMIAAAAJ&amp;hl=en">Google Scholar<svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a>
+      </div>
+
+      <article class="pub">
+        <div class="pub-media">
+          <img src="images/gaze-thumb.jpg" width="400" height="358" loading="lazy" alt="3D render of the optical gaze-tracking encoder: a lens array and a binary mask above a photodetector board">
+        </div>
+        <div class="pub-body">
+          <h3 class="pub-title"><a href="https://arxiv.org/abs/2605.17990">Low Latency Gaze Tracking via Latent Optical Sensing</a></h3>
+          <p class="authors">Yidan Zheng*, <strong>Matheus Souza</strong>*, Kaizhang Kang, <a href="https://vccimaging.org/People/fuq/">Qiang Fu</a>, Hadi Amata, <a href="https://vccimaging.org/People/heidriw/">Wolfgang Heidrich</a> <span class="note">* equal contribution</span></p>
+          <p class="meta"><span class="venue">SIGGRAPH Asia 2026</span></p>
+          <p class="summary">Real-time gaze tracking without a camera: a microlens array and a co-designed binary mask optically encode the eye onto a 4×4 phototransistor array, and a lightweight network reaches 3.4&nbsp;ms end-to-end latency.</p>
+          <ul class="pub-links">
+            <li><a class="btn btn-sm" href="https://arxiv.org/abs/2605.17990"><svg class="icon" aria-hidden="true"><use href="#i-archive"/></svg>arXiv</a></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="pub">
+        <div class="pub-media">
+          <img src="images/latent-thumb.jpg" width="400" height="330" loading="lazy" alt="Optical setup: scene, objective lens, DMD, relay lens and photodiode forming an optical encoder">
+        </div>
+        <div class="pub-body">
+          <h3 class="pub-title"><a href="https://openaccess.thecvf.com/content/CVPR2025/html/Souza_Latent_Space_Imaging_CVPR_2025_paper.html">Latent Space Imaging</a></h3>
+          <p class="authors"><strong>Matheus Souza</strong>, Yidan Zheng, Kaizhang Kang, Yogeshwar Nath Mishra, <a href="https://vccimaging.org/People/fuq/">Qiang Fu</a>, <a href="https://vccimaging.org/People/heidriw/">Wolfgang Heidrich</a></p>
+          <p class="meta"><span class="venue">CVPR 2025</span></p>
+          <p class="summary">A camera that captures directly into the latent space of a generative model, compressing by 1:100 to 1:1000 during capture while still supporting downstream face analysis, demonstrated on real hardware.</p>
+          <ul class="pub-links">
+            <li><a class="btn btn-sm" href="https://openaccess.thecvf.com/content/CVPR2025/html/Souza_Latent_Space_Imaging_CVPR_2025_paper.html"><svg class="icon" aria-hidden="true"><use href="#i-paper"/></svg>Paper</a></li>
+            <li><a class="btn btn-sm" href="https://arxiv.org/abs/2407.07052"><svg class="icon" aria-hidden="true"><use href="#i-archive"/></svg>arXiv</a></li>
+            <li><a class="btn btn-sm" href="https://github.com/vccimaging/latent-imaging"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg>Code</a></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="pub">
+        <div class="pub-media">
+          <img src="images/spectral.jpg" width="797" height="466" loading="lazy" alt="Two metameric points with the same RGB value but different spectra, next to a plot of their spectra">
+        </div>
+        <div class="pub-body">
+          <h3 class="pub-title"><a href="https://doi.org/10.1109/TCI.2025.3622928">Limitations of Data-Driven Spectral Reconstruction — An Optics-Aware Analysis</a></h3>
+          <p class="authors"><a href="https://vccimaging.org/People/fuq/">Qiang Fu</a>*, <strong>Matheus Souza</strong>*, Eunsue Choi, Suhyun Shin, Seung-Hwan Baek, <a href="https://vccimaging.org/People/heidriw/">Wolfgang Heidrich</a> <span class="note">* equal contribution</span></p>
+          <p class="meta"><span class="venue">IEEE TCI 2025</span><span class="meta-note">Preliminary version: oral at COSI 2024</span></p>
+          <p class="summary">A comprehensive analysis of atypical overfitting in state-of-the-art data-driven hyperspectral reconstruction, showing that optical aberrations, when modeled correctly, provide useful encoding power.</p>
+          <ul class="pub-links">
+            <li><a class="btn btn-sm" href="https://doi.org/10.1109/TCI.2025.3622928"><svg class="icon" aria-hidden="true"><use href="#i-paper"/></svg>Paper</a></li>
+            <li><a class="btn btn-sm" href="https://arxiv.org/abs/2401.03835"><svg class="icon" aria-hidden="true"><use href="#i-archive"/></svg>arXiv</a></li>
+            <li><a class="btn btn-sm" href="https://opg.optica.org/abstract.cfm?uri=COSI-2024-CTh4B.3"><svg class="icon" aria-hidden="true"><use href="#i-slides"/></svg>COSI 2024</a></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="pub">
+        <div class="pub-media">
+          <img src="images/hybrid-thumb.jpg" width="400" height="263" loading="lazy" alt="Exploded render of a hybrid lens: aspherical element, diffractive optical element and image sensor">
+        </div>
+        <div class="pub-body">
+          <h3 class="pub-title"><a href="https://doi.org/10.1145/3680528.3687640">End-to-End Hybrid Refractive-Diffractive Lens Design with Differentiable Ray-Wave Model</a></h3>
+          <p class="authors">Xinge Yang, <strong>Matheus Souza</strong>, Kunyi Wang, <a href="https://www.cs.unc.edu/~cpk/">Praneeth Chakravarthula</a>, <a href="https://vccimaging.org/People/fuq/">Qiang Fu</a>, <a href="https://vccimaging.org/People/heidriw/">Wolfgang Heidrich</a></p>
+          <p class="meta"><span class="venue">SIGGRAPH Asia 2024</span></p>
+          <p class="summary">A differentiable model that combines ray tracing with wave propagation for end-to-end design of hybrid refractive–diffractive lenses, validated with fabricated prototypes for aberration correction and extended depth of field.</p>
+          <ul class="pub-links">
+            <li><a class="btn btn-sm" href="https://doi.org/10.1145/3680528.3687640"><svg class="icon" aria-hidden="true"><use href="#i-paper"/></svg>Paper</a></li>
+            <li><a class="btn btn-sm" href="https://arxiv.org/abs/2406.00834"><svg class="icon" aria-hidden="true"><use href="#i-archive"/></svg>arXiv</a></li>
+            <li><a class="btn btn-sm" href="https://github.com/singer-yang/DeepLens"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg>Code</a></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="pub">
+        <div class="pub-media">
+          <img src="images/metaisp-thumb.jpg" width="400" height="389" loading="lazy" alt="A wooden horse as rendered by the Pixel 6 Pro and S22 Ultra ISPs, compared with MetaISP">
+        </div>
+        <div class="pub-body">
+          <h3 class="pub-title"><a href="https://arxiv.org/abs/2401.03220">MetaISP — Exploiting Global Scene Structure for Accurate Multi-Device Color Rendition</a></h3>
+          <p class="authors"><strong>Matheus Souza</strong>, <a href="https://vccimaging.org/People/heidriw/">Wolfgang Heidrich</a></p>
+          <p class="meta"><span class="venue">VMV 2023</span><span class="tag">Oral</span></p>
+          <p class="summary">One neural ISP that reproduces the color rendition of multiple smartphones (Pixel, Samsung, iPhone) by exploiting global scene semantics and capture metadata, trained on new synthetic and real-world <span class="nowrap">RAW–RGB</span> datasets.</p>
+          <ul class="pub-links">
+            <li><a class="btn btn-sm" href="https://arxiv.org/abs/2401.03220"><svg class="icon" aria-hidden="true"><use href="#i-archive"/></svg>arXiv</a></li>
+            <li><a class="btn btn-sm" href="https://github.com/vccimaging/MetaISP"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg>Code</a></li>
+            <li><a class="btn btn-sm" href="https://arxiv.org/abs/2203.10562" title="Earlier version: CRISPnet: Color Rendition ISP Net (arXiv 2022)"><svg class="icon" aria-hidden="true"><use href="#i-archive"/></svg>CRISPnet</a></li>
+          </ul>
+        </div>
+      </article>
+    </section>
 
 
-
-          <!-- ============================================================================== -->
-          <tr onmouseout="deeplens_optica_stop()" onmouseover="deeplens_optica_start()">
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <div class="two" id='deeplens_optica'><img src='images/horse.png'></div>
-                <img src='images/horse.png'>
-              </div>
-              <script type="text/javascript">
-                function deeplens_optica_start() {
-                  document.getElementById('deeplens_optica').style.opacity = "1";
-                }
-
-                function deeplens_optica_stop() {
-                  document.getElementById('deeplens_optica').style.opacity = "0";
-                }
-                deeplens_optica_stop()
-              </script>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-                <a href="https://arxiv.org/abs/2401.03220">
-                  <papertitle>MetaISP - Exploiting Global Scene Structure for Accurate Multi-Device Color Rendition</papertitle>
-                </a>
-              <br>
-              <b>Matheus Souza</b>, <a href="https://vccimaging.org/People/heidriw/">Wolfgang Heidrich</a>
-              <br><br>
-              <em>MetaISP</b> <a href="https://arxiv.org/abs/2401.03220">VMV 2023</a> / <a href=https://github.com/vccimaging/MetaISP>Code</a> </em>
-              <br>
-              <em>CRISPnet: Color rendition ISP net.</b> <a href="https://arxiv.org/abs/2203.10562">Paper (Arxiv)</a> 
-              <!-- <em>OSA Imaging and Applid Optics Congress - Computational Optical Sensing and Imaging (COSI) 2022 (oral): <a href=https://opg.optica.org/abstract.cfm?uri=COSI-2022-CTh4C.2>paper</a>, <a href=https://vccimaging.org/Publications/Yang2022AutoLens/>project</a>, <a href=https://github.com/singer-yang/AutoLens>code</a></em> -->
-              <!-- <br> -->
-              <p></p>
-              <p>
-                <li>We developed a model for learning multiple commercial ISPs.</li>
-                <li>Integrating global scene semantics, metadata information, and advanced deep learning techniques.</li>
-                <li>Collected synthetic and real-world datasets, consisting of RAW-RGB pairs from various devices.</li>
-              </p>
-            </td>
-          </tr>
+    <!-- ================================ EDUCATION ================================ -->
+    <section class="section" id="education" aria-labelledby="edu-title">
+      <div class="section-head">
+        <h2 id="edu-title">Education</h2>
+      </div>
+      <ul class="rows">
+        <li class="row">
+          <span class="logo"><img src="images/kaust.png" width="75" height="72" alt="" loading="lazy"></span>
+          <div>
+            <p class="row-head"><span class="row-title">Ph.D. in Computer Science</span><span class="date">2022 – present</span></p>
+            <p class="row-sub">King Abdullah University of Science and Technology (KAUST) · expected 2026</p>
+          </div>
+        </li>
+        <li class="row">
+          <span class="logo"><img src="images/kaust.png" width="75" height="72" alt="" loading="lazy"></span>
+          <div>
+            <p class="row-head"><span class="row-title">M.Sc. in Computer Science</span><span class="date">2021 – 2022</span></p>
+            <p class="row-sub">King Abdullah University of Science and Technology (KAUST) · Thesis: <em>Color Aware Neural ISP</em></p>
+          </div>
+        </li>
+        <li class="row">
+          <span class="logo logo--full"><img src="images/ufrn.png" width="75" height="75" alt="" loading="lazy"></span>
+          <div>
+            <p class="row-head"><span class="row-title">B.Sc. in Electrical Engineering</span><span class="date">2015 – 2020</span></p>
+            <p class="row-sub">Universidade Federal do Rio Grande do Norte (UFRN), Brazil · Highest honors, Best Student Medal</p>
+          </div>
+        </li>
+      </ul>
+    </section>
 
 
-        <!-- Miscs -->
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-        <!-- <tbody>
-          <tr>
-          <td style="padding:20px;width:100%;vertical-align:middle">
-            <heading>Miscs</heading>
-            <p>
-              <li><b>More about me:</b> I like cats, photography, new techs, and most sports (especially basketball and water sports). I lived in China, Singapore, Saudi Arabia, and the US, and want to live in different places to experience the lifestyle of local people. I enjoy adventures and challenges. I love my life.</li>
-              <br>
-              <li><b>Peer review statement:</b> I am pleased to be invited for peer review in my research field. I will try my best to complete the review within two weeks. I apply the same high standards to every paper, aiming for the utmost potential of the topic. However, I do not expect the authors to address every suggestion I make and leave the final judgment to the associate editor.</li>
-            </p>
-          </td>
-        </tr>
-        </tbody>
-        </table> -->
+    <!-- ================================ AWARDS & SERVICE ================================ -->
+    <section class="section" id="awards" aria-labelledby="awards-title">
+      <div class="section-head">
+        <h2 id="awards-title">Awards &amp; Service</h2>
+      </div>
+      <div class="two-col">
+        <ul class="plain">
+          <li><strong>CEMSE Dean’s List Award</strong>, KAUST <span class="yr">2022, 2025</span></li>
+          <li><strong>Best Project Award</strong>, Generative Models course, KAUST <span class="yr">2023</span></li>
+          <li><strong>KAUST M.Sc./Ph.D. Fellowship</strong> <span class="yr">2020</span></li>
+          <li><strong>Best Student Medal</strong>, Electrical Engineering, UFRN <span class="yr">2020</span></li>
+        </ul>
+        <ul class="plain">
+          <li><strong>Reviewer:</strong> CVPR, SIGGRAPH Asia, NeurIPS, IEEE TPAMI, IEEE TCI, IEEE TIP, Optics Letters, Optics Express</li>
+          <li><strong>Talks:</strong> COSI 2024 (oral), VMV 2023 (oral), KAUST Rising Stars in AI Symposium 2023</li>
+        </ul>
+      </div>
+    </section>
 
 
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr>
-            <td style="padding:0px">
-              <br>
-              <p style="text-align:right;font-size:small;">
-                The website template is from <a href="https://jonbarron.info/">Dr. John Barron</a>.
-              </p>
-            </td>
-          </tr>
-        </tbody></table>
-      </td>
-    </tr>
-  </table>
+    <footer class="footer">
+      <p>© 2026 Matheus Souza</p>
+      <p>Inspired by <a href="https://github.com/jonbarron/jonbarron_website">Jon Barron’s template</a></p>
+    </footer>
+
+  </main>
 </body>
-
 </html>
