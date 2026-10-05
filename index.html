@@ -3,7 +3,7 @@
 <head>
   <!-- ===================================================================
        Matheus Souza · personal academic website
-       Plain HTML + style.css + script.js (no build step).
+       Plain HTML; styles in assets/css, script in assets/js, images in assets/images.
        Nothing needs regular updating except adding new papers.
        =================================================================== -->
   <meta charset="utf-8">
@@ -18,20 +18,20 @@
   <meta property="og:title" content="Matheus Souza — Computational Imaging">
   <meta property="og:description" content="Ph.D. candidate at KAUST co-designing optics and neural networks. Previously Meta Reality Labs.">
   <meta property="og:url" content="https://matheusvms.github.io/">
-  <meta property="og:image" content="https://matheusvms.github.io/images/og-card.jpg">
+  <meta property="og:image" content="https://matheusvms.github.io/assets/images/og-card.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
 
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/icons/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
 
   <!-- Structured data: helps search engines show the right name, photo and profiles -->
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Person","name":"Matheus Medeiros de Souza","alternateName":"Matheus Souza",
    "jobTitle":"Ph.D. Candidate in Computational Imaging","url":"https://matheusvms.github.io/",
-   "image":"https://matheusvms.github.io/images/profile.jpg","email":"mailto:matheus.medeirosdesouza@kaust.edu.sa",
+   "image":"https://matheusvms.github.io/assets/images/profile.jpg","email":"mailto:matheus.medeirosdesouza@kaust.edu.sa",
    "affiliation":{"@type":"CollegeOrUniversity","name":"King Abdullah University of Science and Technology (KAUST)"},
    "alumniOf":[{"@type":"CollegeOrUniversity","name":"Universidade Federal do Rio Grande do Norte (UFRN)"}],
    "knowsAbout":["Computational imaging","Computational photography","Optical design","Deep learning"],
@@ -54,8 +54,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Source+Serif+4:opsz,wght@8..60,600&amp;display=swap">
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/script.js" defer></script>
 </head>
 
 <body>
@@ -114,7 +114,7 @@
       </div>
 
       <div class="intro-photo">
-        <img src="images/profile.jpg" width="600" height="900" alt="Portrait of Matheus Souza">
+        <img src="assets/images/profile.jpg" width="600" height="900" alt="Portrait of Matheus Souza">
       </div>
     </header>
 
@@ -126,7 +126,7 @@
       </div>
       <ul class="rows">
         <li class="row">
-          <span class="logo"><img src="images/meta.png" width="80" height="75" alt=""></span>
+          <span class="logo"><img src="assets/images/logos/meta.png" width="80" height="75" alt=""></span>
           <div>
             <p class="row-head"><span class="row-title">Research Scientist Intern, Computational Imaging</span><span class="date">Jun 2025 – Nov 2025</span></p>
             <p class="row-sub">Meta Reality Labs (Surreal team) · Redmond, WA</p>
@@ -134,7 +134,7 @@
           </div>
         </li>
         <li class="row">
-          <span class="logo"><img src="images/kaust.png" width="75" height="72" alt=""></span>
+          <span class="logo"><img src="assets/images/logos/kaust.png" width="75" height="72" alt=""></span>
           <div>
             <p class="row-head"><span class="row-title">M.Sc./Ph.D. Researcher, Computational Imaging Group</span><span class="date">2021 – present</span></p>
             <p class="row-sub">KAUST · Thuwal, Saudi Arabia</p>
@@ -148,7 +148,7 @@
     <!-- ================================ PUBLICATIONS ================================
          To add a paper: copy one <article class="pub"> … </article> block, paste it
          at the top of the list (newest first) and edit it. Thumbnails are ~400px-wide
-         JPGs in images/ (update src, width/height and alt). Delete unused link buttons. -->
+         JPGs in assets/images/papers/ (update src, width/height and alt). Delete unused link buttons. -->
     <section class="section" id="publications" aria-labelledby="pubs-title">
       <div class="section-head">
         <h2 id="pubs-title">Publications</h2>
@@ -157,7 +157,7 @@
 
       <article class="pub">
         <div class="pub-media">
-          <img src="images/gaze-thumb.jpg" width="400" height="358" loading="lazy" alt="3D render of the optical gaze-tracking encoder: a lens array and a binary mask above a photodetector board">
+          <img src="assets/images/papers/gaze.jpg" width="400" height="358" loading="lazy" alt="3D render of the optical gaze-tracking encoder: a lens array and a binary mask above a photodetector board">
         </div>
         <div class="pub-body">
           <h3 class="pub-title"><a href="https://arxiv.org/abs/2605.17990">Low Latency Gaze Tracking via Latent Optical Sensing</a></h3>
@@ -172,7 +172,7 @@
 
       <article class="pub">
         <div class="pub-media">
-          <img src="images/latent-thumb.jpg" width="400" height="330" loading="lazy" alt="Optical setup: scene, objective lens, DMD, relay lens and photodiode forming an optical encoder">
+          <img src="assets/images/papers/latent.jpg" width="400" height="330" loading="lazy" alt="Optical setup: scene, objective lens, DMD, relay lens and photodiode forming an optical encoder">
         </div>
         <div class="pub-body">
           <h3 class="pub-title"><a href="https://openaccess.thecvf.com/content/CVPR2025/html/Souza_Latent_Space_Imaging_CVPR_2025_paper.html">Latent Space Imaging</a></h3>
@@ -189,7 +189,7 @@
 
       <article class="pub">
         <div class="pub-media">
-          <img src="images/spectral.jpg" width="797" height="466" loading="lazy" alt="Two metameric points with the same RGB value but different spectra, next to a plot of their spectra">
+          <img src="assets/images/papers/spectral.jpg" width="797" height="466" loading="lazy" alt="Two metameric points with the same RGB value but different spectra, next to a plot of their spectra">
         </div>
         <div class="pub-body">
           <h3 class="pub-title"><a href="https://doi.org/10.1109/TCI.2025.3622928">Limitations of Data-Driven Spectral Reconstruction — An Optics-Aware Analysis</a></h3>
@@ -206,7 +206,7 @@
 
       <article class="pub">
         <div class="pub-media">
-          <img src="images/hybrid-thumb.jpg" width="400" height="263" loading="lazy" alt="Exploded render of a hybrid lens: aspherical element, diffractive optical element and image sensor">
+          <img src="assets/images/papers/hybrid.jpg" width="400" height="263" loading="lazy" alt="Exploded render of a hybrid lens: aspherical element, diffractive optical element and image sensor">
         </div>
         <div class="pub-body">
           <h3 class="pub-title"><a href="https://doi.org/10.1145/3680528.3687640">End-to-End Hybrid Refractive-Diffractive Lens Design with Differentiable Ray-Wave Model</a></h3>
@@ -223,7 +223,7 @@
 
       <article class="pub">
         <div class="pub-media">
-          <img src="images/metaisp-thumb.jpg" width="400" height="389" loading="lazy" alt="A wooden horse as rendered by the Pixel 6 Pro and S22 Ultra ISPs, compared with MetaISP">
+          <img src="assets/images/papers/metaisp.jpg" width="400" height="389" loading="lazy" alt="A wooden horse as rendered by the Pixel 6 Pro and S22 Ultra ISPs, compared with MetaISP">
         </div>
         <div class="pub-body">
           <h3 class="pub-title"><a href="https://arxiv.org/abs/2401.03220">MetaISP — Exploiting Global Scene Structure for Accurate Multi-Device Color Rendition</a></h3>
@@ -247,21 +247,21 @@
       </div>
       <ul class="rows">
         <li class="row">
-          <span class="logo"><img src="images/kaust.png" width="75" height="72" alt="" loading="lazy"></span>
+          <span class="logo"><img src="assets/images/logos/kaust.png" width="75" height="72" alt="" loading="lazy"></span>
           <div>
             <p class="row-head"><span class="row-title">Ph.D. in Computer Science</span><span class="date">2022 – present</span></p>
             <p class="row-sub">King Abdullah University of Science and Technology (KAUST) · expected 2026</p>
           </div>
         </li>
         <li class="row">
-          <span class="logo"><img src="images/kaust.png" width="75" height="72" alt="" loading="lazy"></span>
+          <span class="logo"><img src="assets/images/logos/kaust.png" width="75" height="72" alt="" loading="lazy"></span>
           <div>
             <p class="row-head"><span class="row-title">M.Sc. in Computer Science</span><span class="date">2021 – 2022</span></p>
             <p class="row-sub">King Abdullah University of Science and Technology (KAUST) · Thesis: <em>Color Aware Neural ISP</em></p>
           </div>
         </li>
         <li class="row">
-          <span class="logo logo--full"><img src="images/ufrn.png" width="75" height="75" alt="" loading="lazy"></span>
+          <span class="logo logo--full"><img src="assets/images/logos/ufrn.png" width="75" height="75" alt="" loading="lazy"></span>
           <div>
             <p class="row-head"><span class="row-title">B.Sc. in Electrical Engineering</span><span class="date">2015 – 2020</span></p>
             <p class="row-sub">Universidade Federal do Rio Grande do Norte (UFRN), Brazil · Highest honors, Best Student Medal</p>
